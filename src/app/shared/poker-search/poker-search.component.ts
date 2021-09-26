@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'poker-search',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poker-search.component.scss']
 })
 export class PokerSearchComponent implements OnInit {
+  @Output() public emmitSearch: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public search(value: string) {
+    this.emmitSearch.emit(value);
   }
 
 }
